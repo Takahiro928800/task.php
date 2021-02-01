@@ -2,14 +2,16 @@
 # 回答の出力を確認される際は，「php task.php」をターミナルから実行して下さい。
 
 print("#####q1#####".PHP_EOL);
+<?php
 $names = ["田中", "佐藤", "佐々木", "高橋"];
 
-  $names[] "斎藤"
-  <?php echo $names[4];?>
+array_push($names,"斎藤");
+print_r($names);
 
 echo PHP_EOL;
 
 print("#####q2#####".PHP_EOL);
+
 $array1 = ["dog", "cat", "fish"];
 $array2 = ["bird", "bat", "tiger"];
 
@@ -21,23 +23,24 @@ print_r($array);
 echo PHP_EOL;
 
 print("#####q3#####".PHP_EOL);
+
 $numbers = [1, 5, 8, 10, 2, 3, 2, 3, 3, 1, 4, 5, 9];
 
 $count = 0;
     foreach($numbers as $number){
-      if(number ===3){
+      if($number ===3){
          $count++;
       }
     }
-
+print_r($count . "回".PHP_EOL);
 
 echo PHP_EOL;
 
 print("#####q4#####".PHP_EOL);
 $sports = ["サッカー", "フットサル", null, "野球", "バスケ", null, "バレー"];
 
- $sports = array_diff($sports,[null]);
- print_r($_sports);
+$sports = array_diff($sports,[null]);
+print_r($sports);
 
 echo PHP_EOL;
 
@@ -75,9 +78,8 @@ echo PHP_EOL;
 
 print("#####q8#####".PHP_EOL);
 $programming_languages = ["php","ruby","python","javascript"];
-$programming_languages = array_('ucfirst',$programming_langages);
+$programming_languages = array_map('ucfirst',$programming_languages);
 $upper_case_programming_languages = array_map('strtoupper',$programming_languages);
-
 
 print_r($programming_languages);
 echo PHP_EOL;
@@ -104,10 +106,10 @@ print("#####q10#####".PHP_EOL);
 $foods = ["いか","たこ","うに","しゃけ","うにぎり","うに軍艦","うに丼"];
 
 foreach($foods as $food){
-     if(preg_match('/うに/',＄food)){
-        print('好物です'.PHP_EOL);
+     if(preg_match('/うに/',$food)){
+         print('好物です'.PHP_EOL);
      }else{
-        print('まぁまぁ好きです'.PHP_EOL);
+         print('まぁまぁ好きです'.PHP_EOL);
      }
   }
 
@@ -119,18 +121,23 @@ $sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"],
 $sports2 = [];
 foreach($sports as $key => $sport){
    if(is_array($sport)){
-       $sports2 = array_merge($sport2,$sport);
+       $sports2 = array_merge($sports2,$sport);
    }else{
        array_push($sports2,$sport);
    }
 }
-$sports2 = array_unique($sport2);
-$sports2 = array_values($sport2);
+$sports2 = array_unique($sports2);
+$sports2 = array_values($sports2);
 $sports3 = [];
 foreach($sports2 as $key => $sport){
     $number = $key +1;
-    $sport3 ="No.".$number." ".$sport;
-    array_push($sports3,$sports3);
+    $sport3 = "No.".$number." ".$sport;
+    array_push($sports3,$sport3);
+}
+
+print_r("ユーザーの趣味一覧".PHP_EOL);
+foreach($sports3 as $sport){
+    print($sport.PHP_EOL);
 }
 
 echo PHP_EOL;
@@ -138,7 +145,7 @@ echo PHP_EOL;
 print("#####q12#####".PHP_EOL);
 $data = [ "user" => [ "name" => "satou", "age" => 33 ] ];
 
-print_r($deta["user"]["name"]);
+print_r($data["user"]["name"]);
 
 echo PHP_EOL;
 
@@ -160,15 +167,17 @@ foreach($data as $one_data){
     array_push($new_data,$one_data);
 }
 
+print_r($new_data);
+
 echo PHP_EOL;
 
 print("#####q15#####".PHP_EOL);
 $data1 = [ "name" => "saitou", "hobby" => "soccer", "age" => 33, "role" => "admin" ];
 
 if( array_key_exists('age',$data1) ) {
-    print('OK'.PHP_EQL);
+    print('OK'.PHP_EOL);
 } else {
-   print('NG'.PHP_EQL);
+    print('NG'.PHP_EOL);
 }
 
 $data2 = [ "name" => "yamada", "hobby" => "baseball", "role" => "normal" ];
